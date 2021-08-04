@@ -1,30 +1,45 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="content">
+    <!-- <router-view v-slot="{ Component }">
+      <transition
+        name="router"
+        enter-active-class="animate__animated animate__tada"
+        leave-active-class="animate__animated animate__bounceOutRight"
+        mode="out-in"
+      >
+        <component :is="Component" />
+      </transition>
+    </router-view> -->
+    <router-view />
   </div>
-  <router-view/>
+  <navBar />
 </template>
 
+<script>
+import navBar from "./components/navBar.vue";
+
+export default {
+  components: { navBar },
+  setup() {},
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.router-enter-from,
+.router-leave-to {
+  opacity: 0;
+  transform: translateX(-50px);
 }
-
-#nav {
-  padding: 30px;
+.router-enter-active,
+.router-leave-active {
+  transition: all 1s ease;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.content
+{
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 </style>
