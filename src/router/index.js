@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
 import items from '../views/items.vue'
 import inventories from '../views/inventories.vue'
 import categories from '../views/categories.vue'
@@ -9,11 +10,17 @@ import addItem from '../views/addItem.vue'
 import linkItem from '../views/linkItem.vue'
 import details from '../views/details.vue'
 
+
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/items',

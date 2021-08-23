@@ -1,5 +1,7 @@
 <template>
-  <h1>{{this.$route.params.page}}</h1>
+  <h1>{{pageType}}</h1>
+
+
   {{this.$route.query.id}}
   <itemDetails/>
 </template>
@@ -13,14 +15,16 @@ export default {
   
     setup(props)
     {
+            const route = useRoute();
+
       let id = props.id
+      let pageType = route.params.page;
       console.log(id)
 
-      const route = useRoute();
 
       console.log(route.query.id)
 
-      return {id}
+      return {id , pageType}
     }
 
 }

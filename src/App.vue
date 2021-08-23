@@ -37,6 +37,7 @@ export default {
 .content
 {
   height: calc(100vh - 80px);
+  /* overflow-y: scroll; */
   display: flex;
   justify-content: center;
   align-items: center;

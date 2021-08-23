@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import Parse from 'parse/dist/parse.min.js';
+
 
 export default createStore({
   state: {
@@ -23,6 +25,21 @@ export default createStore({
 
   },
   actions: {
+
+    async addObject(context , object)
+    {
+      const Object = Parse.Object.extend(object.className);
+      let newObject = new Object()
+
+      try{
+        newObject = await newObject.save(object);
+      }
+      catch(err)
+      {
+        console.log(err)
+      }
+    }
+     
 
   },
   modules: {
